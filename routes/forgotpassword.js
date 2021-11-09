@@ -25,7 +25,7 @@ router.put("/forgot",async(req,res)=>{
                 from: EMAIL, // sender address
                 to: req.body.email, // list of receivers
                 subject: "Reset Password Link", // Subject line
-                text: `Hello! Please click on the link to reset the password with the secret string.\n Secret Key: ${randomstring}`
+                text: `Hello and Greeting from Precis! Please click on the link to reset the password with the secret string.\nSecret Key: ${randomstring}`
                 //${URL+"activateaccount/"+new_token}`, // plain text body 
               });
               console.log("Message sent: %s", info.messageId);

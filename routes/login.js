@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const find_doc = require("../controllers/find_doc");
+const modifyfield = require("../controllers/modifyfield");
 const {COLLECTION_NAME} = require("../helpers/environment");
 const bcrypt = require("bcrypt");
 router.post("/login",async(req,res)=>{
@@ -18,6 +19,8 @@ router.post("/login",async(req,res)=>{
                 if(checkpassword){
                     const sessUser = { id: checkuser._id, email: checkuser.email,firstname:checkuser.firstname };
                     req.session.user = sessUser;
+                    if(checkuser.pass_token)
+                    await modifyfield(COLLECTION_NAME,"del","email",req.body.email,{pass_token:1,secretkey:1});
                     res.status(200).json({ msg: " Logged In Successfully", sessUser });
                 }
                 else{
