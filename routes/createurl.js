@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-var shortUrl = require('node-url-shortener');
 const find_doc = require("../controllers/find_doc");
 const modifyfield = require("../controllers/modifyfield");
 const { objectId } = require("../helpers/connection");
