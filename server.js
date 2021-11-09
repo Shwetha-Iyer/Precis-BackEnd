@@ -24,7 +24,8 @@ app.set('trust proxy',1);
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD','DELETE'],
-    credentials: true
+    credentials: true,
+    allowedHeaders: 'Content-Type, *'
 }));
 // setting up connect-mongodb-session store
 const mongoDBstore = new MongoDBStore({
@@ -45,6 +46,8 @@ app.use(
       cookie: {
         maxAge: MAX_AGE,
         secure:true,
+        sameSite:"None",
+        httpOnly:true,
       }
     })
   );
