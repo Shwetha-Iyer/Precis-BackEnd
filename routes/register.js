@@ -28,8 +28,8 @@ router.post("/register",async(req,res)=>{
                 from: EMAIL, // sender address
                 to: req.body.email, // list of receivers
                 subject: "Account Activation link", // Subject line
-                text: `Hello! Your account with Precis has been successfully created. Please click on the link to activate your account. \n \n Username: ${req.body.email}`
-                //${URL+"activateaccount/"+account_activation}`, // plain text body 
+                text: `Hello! Your account with Precis has been successfully created. Please click on the link to activate your account.
+                \nLink: ${URL+"activateaccount/"+req.body.signup_token}`
               });
               console.log("New user created,",req.body.email);
               console.log("Message sent: %s", info.messageId);

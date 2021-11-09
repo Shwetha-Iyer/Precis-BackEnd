@@ -11,4 +11,5 @@ module.exports = {
     TOKEN:process.env.TOKEN,
     EMAIL: process.env.EMAIL,
     PASS: process.env.PASS,
+    URL:process.env.URL
 }
